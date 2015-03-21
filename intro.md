@@ -11,7 +11,7 @@ While doing all this, I always felt like I was missing something.
 
 _Something was going on under the scenes_, behind the curtain. 
 
-Things I knew I shouldn't really look at. 
+Things I knew I shoulduldn't really look at. 
 
 Code!
 
