@@ -5,9 +5,9 @@
  irb> “Hello World”
 ```
 
-## Lets create a comic book store
+# Lets create a comic book store
 
-Let’s start with a single comic book and give it a `title`.
+Let’s *start* with a **single** comic book and give it a `title`.
 
 ```ruby
 title = “Infinity Gauntlet”
