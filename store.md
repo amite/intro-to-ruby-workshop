@@ -313,6 +313,50 @@ get '/', host_name: 'localhost' do
 end
 ```
 
+Serving simple views
+
+```
+get '/' do
+  erb :index
+end
+```
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Views with Sinatra</title>
+</head>
+<body>
+  <h1>Simple Views with Sinatra</h1>
+  <h2><%= Time.now %></h2>
+</body>
+</html>
+```
+Modular app setup
+
+1. Create a lib directory with `models` and `views` folder
+2. Create a config.ru that requires the app
+3. Replace current code with class
+4. Run `shotgun config.ru`
+
+```
+require "sinatra"
+
+class App < Sinatra::Base
+  get '/' do
+    erb :index
+  end
+end
+```
+
+Format `Time.now`
+
+```
+Time.now.strftime("%a %I:%M %B %y %Y")
+```
+
 
 ### Super short intro mongodb
 
