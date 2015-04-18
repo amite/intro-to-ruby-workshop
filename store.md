@@ -2,6 +2,8 @@
 
 So what is a store? Its a collection of things isn’t it? How do we collect things in programming? We use `Arrays`
 
+### Introduction to Arrays
+
 ```ruby
 
 comic_book_cart = [‘amazing spiderman’, ‘Return of Superman’, ‘The Thing’]
@@ -48,7 +50,75 @@ What we want is like a map that has a key with the name of the book and the valu
 
 Makes sense? So what do we call this kind of data structure? Hashmap, Associative Array? In ruby, we call it a hash.
 
-## The Ruby hash
+
+## To loop or not to loop. 
+
+Let’s do a while loop.
+
+First we initialize some variables. We’ll need a counter and a count.
+
+```
+i = 0  # this is our counter
+num = 10 #this is the number of times we want to read our comic book (cause they are addictive)
+
+\# post and pre increment does not work in ruby
+
+i += 1
+```
+
+and now the `for` loop:
+
+```
+>> for i in 1..10 do
+?> puts "I read this book #{i} times"
+>> end
+
+I read this book 1 times
+I read this book 2 times
+I read this book 3 times
+I read this book 4 times
+I read this book 5 times
+I read this book 6 times
+I read this book 7 times
+I read this book 8 times
+I read this book 9 times
+I read this book 10 times
+=> 1..10
+```
+
+
+
+You can also do a `while` loop.
+
+```
+>> while (i < num) do
+?> puts "I read this comic #{i} times"
+>> i += 1
+>> end
+I read this comic 0 times
+I read this comic 1 times
+I read this comic 2 times
+I read this comic 3 times
+I read this comic 4 times
+I read this comic 5 times
+I read this comic 6 times
+I read this comic 7 times
+I read this comic 8 times
+I read this comic 9 times
+```
+
+## But rubyists prefer each
+
+```
+(1..100).each do |k|
+   puts "#{k}. This is Ruby preferred way of doing loops, when possible"
+end                  
+
+(1..100).each{ |k| puts "#{k}. Curly braces make it even shorter"}
+```
+
+
+### The Ruby hash
 
 Now before we convert these arrays into a *meaningful* hash for our store, we need to look at the basics of creating a hash.
 ```
@@ -140,6 +210,68 @@ Working with irb is great - especially when you want to test your assumptions ab
 
 So open up your favourite text editor and let’s write down our first program.
 
+```
+\#!/usr/bin/ruby
+
+\# p "this is how you script in ruby"
+
+\# And that’s how you comment out scripts in ruby
+
+puts ruby -v # this won’t work. You need backticks.
+
+p `ruby -v`
+```
+
+## Functions
+
+Let’s create `superpowers.rb`
+
+```
+def description_of(superhero)
+  case superhero
+  when "batman"
+    ['specialty: gadgets', 'power: stealth']
+  when "wolverine"
+    ['specialty: healing', 'power: titanium strength']
+  when "doctor strange"
+    ['specialty: magic', 'power: supernatural']
+  else
+    "has no superpowers"
+  end
+end
+
+if $0 == __FILE__
+  puts "superhero has"
+  puts description_of("wolverine")
+end
+```
+
+You can also execute this script from the command-line:
+
+```
+ruby superpowers.rb
+```
+
+That was also your first look at case statements btw.
+
+
+## Intro to Object Oriented Programming in Ruby
+
+So what is oop? Why do we need it? What’s the difference?
+
+Before we answer that question, it’s good to take a step back and think about how we think about our programs. If we just think about them as a series of steps that need to be executed, things are going to get complicated really soon.
+
+As programs grow more complex, the number of steps and their sequential execution will be hard to keep track of and we will find ourselves lost in tracing our steps.
+
+Even more problematic, we are thinking about our code purely in terms of syntax, scalar values, procedures and data structures. This means we have no clear way to communicate what we are building. We seem to be building stacks of code and storing them into files and hoping the damn thing runs.
+
+This way the act of coding seems to have no relationship with what is being built.  You can say you are building a file uploader but really the context is missing. The real story is that you are building a feature that let logged in users i.e. members and their families upload photos and videos to the cloud.
+
+Or you are building an online service that lets students store, share and access their notes with their friends as a group.
+
+What seems to be happening is that we are building X so that Y solves a problem Z. We need a higher level of communication for building this and that is the language of objects.
+
+Objects give you a way to make sense of code. It allows you to think in terms of state and behavior. And that really matters. Because when we name things according to the role they are playing, those things become easier to understand and manipulate.
 
 
 
