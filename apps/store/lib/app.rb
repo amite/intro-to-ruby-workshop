@@ -2,6 +2,6 @@ require "sinatra"
 
 class App < Sinatra::Base
   get '/' do
-    erb :index
+    erb :"comics/index"
   end
 end
