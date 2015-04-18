@@ -2,6 +2,6 @@ require "sinatra"
 
 class App < Sinatra::Base
   get '/' do
-    "Modular App"
+    erb :index
   end
 end
