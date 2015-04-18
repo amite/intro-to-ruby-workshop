@@ -31,7 +31,7 @@ gem search print
 Whoaa! That’s a lot of results. Now I know I have used `awesome print` so I’ll install it.
 
 ```ruby
-gem install awesome_print 
+gem install awesome_print
 ```
 
 ```
@@ -46,12 +46,12 @@ receipt = comic_book_cart.zip(comic_book_prices)
 
 That’s good.
 
-What we want is like a map that has a key with the name of the book and the value that is the cost. 
+What we want is like a map that has a key with the name of the book and the value that is the cost.
 
 Makes sense? So what do we call this kind of data structure? Hashmap, Associative Array? In ruby, we call it a hash.
 
 
-## To loop or not to loop. 
+## To loop or not to loop.
 
 Let’s do a while loop.
 
@@ -112,7 +112,7 @@ I read this comic 9 times
 ```
 (1..100).each do |k|
    puts "#{k}. This is Ruby preferred way of doing loops, when possible"
-end                  
+end
 
 (1..100).each{ |k| puts "#{k}. Curly braces make it even shorter"}
 ```
@@ -190,7 +190,7 @@ Then we loop over them and add them up.
 total = receipt.values.inject { |val, counter| val + counter  }
 ```
 
-Notice that `counter` variable? You get for free when you use the `inject` method. 
+Notice that `counter` variable? You get for free when you use the `inject` method.
 
 Now with that `total` variable in our hand, we just append to that hash:
 
@@ -272,6 +272,27 @@ Or you are building an online service that lets students store, share and access
 What seems to be happening is that we are building X so that Y solves a problem Z. We need a higher level of communication for building this and that is the language of objects.
 
 Objects give you a way to make sense of code. It allows you to think in terms of state and behavior. And that really matters. Because when we name things according to the role they are playing, those things become easier to understand and manipulate.
+
+
+## Building the Sinatra App
+
+The simplest way to say `hello world` on the web is no doubt with Sinatra. (http://www.sinatrarb.com/)[Sinatra] is one of the easiest micro-frameworks you can work with in ruby.
+
+```
+require "sinatra"
+
+get '/hello' do
+  "Hello world"
+end
+
+get '/goodbye' do
+  "goodbye world"
+end
+```
+
+### Super short intro mongodb
+
+Its a nosql data store based on documents.
 
 
 

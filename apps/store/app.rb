@@ -1,7 +1,7 @@
 require "sinatra"
 
-get '/hello/:name' do |name|
-  "Hello #{name}"
+get '/hello/:name' do
+  "Hello #{params[:name]}"
 end
 
 get '/goodbye' do
