@@ -290,6 +290,14 @@ get '/goodbye' do
 end
 ```
 
+This is how you capture params:
+
+```
+get '/hello/:name' do
+  "Hello #{params[:name]}"
+end
+```
+
 ### Super short intro mongodb
 
 Its a nosql data store based on documents.
