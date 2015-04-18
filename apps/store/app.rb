@@ -1,7 +1,9 @@
 require "sinatra"
 
-get '/', host_name: 'localhost' do
-  "#{request.env.inspect}"
+set :public_folder, File.dirname(__FILE__) + '/static'
+
+get '/' do
+  erb :index
 end
 
 get '/say/*/to/*' do

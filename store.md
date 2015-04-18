@@ -298,6 +298,22 @@ get '/hello/:name' do
 end
 ```
 
+Working with splat
+
+```
+get '/say/*/to/*' do
+  "Say #{params[:splat][0]} to #{params[:splat][1]}"
+end
+
+Serving route based on conditional:
+
+```
+get '/', host_name: 'localhost' do
+  "#{request.env.inspect}"
+end
+```
+
+
 ### Super short intro mongodb
 
 Its a nosql data store based on documents.
