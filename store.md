@@ -357,10 +357,51 @@ Format `Time.now`
 Time.now.strftime("%a %I:%M %B %y %Y")
 ```
 
+Switching to layout with `yield`
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta/>
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+    <link rel='stylesheet' href="/css/app.css"></link>
+    <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="navbar-nav nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/comics">Comics</a>
+        </li>
+        <li>
+          <a href="/comics/new">New comic</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+```
+
+```
+get '/' do
+  erb :"comics/index"
+end
+```
 
 ### Super short intro mongodb
 
-Its a nosql data store based on documents.
+Mongodb is a nosql data store based on documents. You get a `database`. The database contains `collections` (which you can think of as tables). And each collection contains `documents` which you can think of as records.
+
+
+
 
 
 
