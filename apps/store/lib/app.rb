@@ -1,4 +1,4 @@
-require "sinatra"
+require "models/comic"
 
 class App < Sinatra::Base
   get '/' do
@@ -9,7 +9,12 @@ class App < Sinatra::Base
     erb :"comics/new"
   end
 
-  post '/posts' do
-    puts params
+  post '/comics' do
+    @comic = Comic.new params[:comic]
+    if @comic.save
+      redirect "/"
+    else
+      erb :"comics/new"
+    end
   end
 end
