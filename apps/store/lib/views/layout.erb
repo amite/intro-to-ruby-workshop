@@ -7,21 +7,11 @@
     <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
     </script>
+    <title>Comic Book Store</title>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
-      <ul class="navbar-nav nav">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/comics">Comics</a>
-        </li>
-        <li>
-          <a href="/comics/new">New comic</a>
-        </li>
-      </ul>
-    </nav>
+    <%= erb :"shared/_nav" %>
+
     <div class="container">
       <%= yield %>
     </div>
