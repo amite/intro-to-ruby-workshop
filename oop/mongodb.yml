@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: comics
+      hosts:
+        - localhost:27017
