@@ -5,6 +5,11 @@ class App < Sinatra::Base
     erb :"comics/index"
   end
 
+  get '/comics' do
+    @comics = Comic.all
+    erb :"comics/index"
+  end
+
   get '/comics/new' do
     erb :"comics/new"
   end

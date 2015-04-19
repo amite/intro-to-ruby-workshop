@@ -273,6 +273,114 @@ What seems to be happening is that we are building X so that Y solves a problem 
 
 Objects give you a way to make sense of code. It allows you to think in terms of state and behavior. And that really matters. Because when we name things according to the role they are playing, those things become easier to understand and manipulate.
 
+Here is a basic class in ruby:
+
+```
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+
+bob = Person.new("Bob", 25)
+p bob
+
+steve = Person.new("Steve", 22)
+p steve.name
+```
+
+These are two instances we have created out of this class. `@name` and `@age` are **instance variables**. An instance variable is a variable that holds the data for the current instance of the class.
+
+You can set default values while setting up an instance:
+
+```
+def initialize(name, age = 22)
+  @name = name
+  @age = age
+end
+```
+
+The methods inside the class are called `getters` and `setters`. You cannot access instance variables directly (you can with `instance_variable_get` but you really shouldn't).
+
+This is what a setter looks like:
+
+```
+def age=(age)
+  @age = age
+end
+```
+
+But these just add boilerplate. Instead we can use some sweet ruby magic:
+
+`attr_accessor :age, :name`
+
+> In Ruby, nearly everything is an object. Classically object-oriented languages define an object as something that maintains state and exhibits behavior. While this is true in Ruby, I think it is more precise to say that Ruby objects contain other objects and respond to messages. You might say that Ruby is a ‘message oriented’ language.
+
+- ()[http://rubylearning.com/blog/2010/11/03/do-you-understand-rubys-objects-messages-and-blocks/]
+
+Now `age` and `name` are just functions inside a class. And we can call them `methods`. But in ruby you can also understand them as `messages` sent to objects.
+
+>Object-Oriented Design is about the messages that get sent between objects and not the objects themselves. - *integralist blog*
+
+An object does not have a static type. It is what it does and that means it is what it responds to. And infact we have a built in method in ruby with that name `respond_to`
+
+```
+puts bob.respond_to?(:age)
+```
+
+Now this means that the object bob can respond to this message. You can make another object and make it respod to the `age` object. You don't have to check type. So what happens when you call this method on the bob object you are actually sending it a message.
+
+```
+puts bob.send(:age)
+```
+
+```
+1.send :+, 2
+1.+ 2       # same thing
+1 + 2       # same thing
+```
+Alsow ith strings:
+
+Now 2 is the parameter send to the :+ method.
+
+This is why you can do
+
+```
+1.next # => 2
+```
+
+```
+"cool".send(:upcase)
+```
+
+Now if you looka this expression, you see the method being passed as a parameter. This also means you can also define methods on the fly in ruby.
+
+Let's create a method called `greet`:
+
+send(:define_method, :greet) {|user| puts "hello #{user}"}
+
+which is exactly the same as defining a method statically like:
+
+def greet(user)
+  "hello #{user}"
+end
+
+
+
+
+##### This is how you connect to mongodb:
+
+```
+require "bundler"
+Bundler.require
+
+Mongoid.load! File.expand_path("../mongodb.yml", __FILE__), :development
+```
+
+
+
+
 
 ## Building the Sinatra App
 

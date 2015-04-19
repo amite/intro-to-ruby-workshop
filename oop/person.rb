@@ -1,4 +1,4 @@
-require_relative './config'
+# require_relative './config'
 
 class Person
 
@@ -16,5 +16,11 @@ bob = Person.new("Bob")
 bob.age = 32
 # p bob.age
 
+puts bob.send(:age)
+
 steve = Person.new("Steve", 22)
 # p steve.name
+
+send(:define_method, :greet) {|user| puts "hello #{user}"}
+
+p greet "Fred"
